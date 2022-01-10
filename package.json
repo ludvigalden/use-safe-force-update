@@ -1,7 +1,7 @@
 {
 	"name": "use-safe-force-update",
 	"description": "React hook that only forces an update when the component is mounted.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"author": "Ludvig Aldén <ludvig@tifum.com>",
 	"repository": "ludvigalden/use-safe-force-update",
