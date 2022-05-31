@@ -1,8 +1,8 @@
 {
   "name": "use-safe-force-update",
   "sideEffects": false,
-  "description": "useSafeForceUpdate()",
-  "version": "1.0.1",
+  "description": "React hook(s) for safely force-updating components",
+  "version": "2.0.0",
   "license": "MIT",
   "author": {
     "name": "Ludvig Aldén",
