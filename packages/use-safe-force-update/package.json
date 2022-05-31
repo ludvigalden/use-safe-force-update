@@ -1,0 +1,46 @@
+{
+  "name": "use-safe-force-update",
+  "sideEffects": false,
+  "description": "useSafeForceUpdate()",
+  "version": "1.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Ludvig Aldén",
+    "email": "ludvig@tifum.com",
+    "url": "https://github.com/ludvigalden"
+  },
+  "contributors": [
+    "Ludvig Aldén <ludvig@tifum.com> (https://github.com/ludvigalden)"
+  ],
+  "bugs": {
+    "url": "https://github.com/ludvigalden/use-safe-force-update/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ludvigalden/use-safe-force-update.git",
+    "directory": "packages/use-safe-force-update"
+  },
+  "homepage": "https://github.com/ludvigalden/tree/main/packages/use-safe-force-update#readme",
+  "keywords": [
+    "react",
+    "react-native",
+    "hook",
+    "hooks",
+    "forceUpdate",
+    "force",
+    "update",
+    "safe"
+  ],
+  "main": "dist/use-safe-force-update.cjs.js",
+  "types": "dist/use-safe-force-update.cjs.d.ts",
+  "module": "dist/use-safe-force-update.esm.js",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "react": "^18.1.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}

@@ -1,63 +1,90 @@
 {
-	"name": "use-safe-force-update",
-	"description": "React hook that only forces an update when the component is mounted.",
-	"version": "1.0.1",
-	"license": "MIT",
-	"author": "Ludvig Aldén <ludvig@tifum.com>",
-	"repository": "ludvigalden/use-safe-force-update",
-	"keywords": [
-		"react",
-		"react-native",
-		"safe",
-		"force update",
-		"mounted",
-		"effect",
-		"hook",
-		"react-hooks"
-	],
-	"main": "dist/index.js",
-	"umd:main": "dist/use-safe-force-update.umd.production.min.js",
-	"module": "dist/use-safe-force-update.esm.js",
-	"typings": "dist/index.d.ts",
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"start": "tsdx watch --verbose",
-		"build": "tsdx build",
-		"lint": "tsdx lint",
-		"prepare": "tsdx build",
-		"test": "tsdx test --passWithNoTests",
-		"precommit": "lint-staged",
-		"prepublishOnly": "tsdx build",
-		"release": "np"
-	},
-	"peerDependencies": {
-		"react": ">=16.8.0"
-	},
-	"devDependencies": {
-		"@types/react": "^16.9.23",
-		"@typescript-eslint/eslint-plugin": "5.9.0",
-		"@typescript-eslint/parser": "5.9.0",
-		"babel-eslint": "10.1.0",
-		"babel-jest": "^27.4.6",
-		"eslint": "8.6.0",
-		"eslint-config-prettier": "8.3.0",
-		"eslint-import-resolver-typescript": "2.5.0",
-		"eslint-loader": "4.0.2",
-		"eslint-plugin-babel": "5.3.1",
-		"eslint-plugin-import": "2.25.4",
-		"eslint-plugin-prettier": "4.0.0",
-		"eslint-plugin-react": "7.28.0",
-		"eslint-plugin-unused-imports": "2.0.0",
-		"got": "^10.6.0",
-		"husky": "7.0.4",
-		"lint-staged": "12.1.7",
-		"np": "7.6.0",
-		"prettier": "2.5.1",
-		"react": "^17.0.2",
-		"ts-node": "10.4.0",
-		"tsdx": "0.14.1",
-		"typescript": "4.5.4"
-	}
+  "name": "use-safe-force-update-monorepo",
+  "private": true,
+  "version": "1.0.1",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ludvig Aldén",
+    "email": "ludvig@tifum.com",
+    "url": "https://github.com/ludvigalden"
+  },
+  "contributors": [
+    "Ludvig Aldén <ludvig@tifum.com> (https://github.com/ludvigalden)"
+  ],
+  "bugs": {
+    "url": "https://github.com/ludvigalden/use-safe-force-update/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ludvigalden/use-safe-force-update.git"
+  },
+  "homepage": "https://github.com/ludvigalden/use-safe-force-update#readme",
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "prepare": "preconstruct dev && husky install",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "postinstall": "preconstruct dev && manypkg check",
+    "build": "preconstruct fix && preconstruct build && yarn build-readme",
+    "release": "yarn build && changeset publish",
+    "test": "jest",
+    "clean": "manypkg exec rm -rf node_modules && manypkg exec rm -rf dist && rm -rf node_modules",
+    "lint": "yarn eslint .",
+    "build-readme": "jsdoc2md --files ./packages/**/*.ts --template ./README.hbs.md --configure ./jsdoc2md.json > ./README.md && cp ./README.md ./packages/use-safe-force-update/README.md"
+  },
+  "browserslist": [
+    "defaults",
+    "> 0.5%",
+    "Firefox ESR",
+    "not IE <= 10"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
+    "@babel/runtime": "^7.18.3",
+    "@changesets/changelog-github": "^0.4.4",
+    "@changesets/cli": "^2.22.0",
+    "@manypkg/cli": "^0.19.1",
+    "@preconstruct/cli": "^2.1.5",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@types/jest": "^27.5.1",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^28.1.0",
+    "babel-preset-minify": "^0.6.0-alpha.9",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.0",
+    "jsdoc-babel": "^0.5.0",
+    "jsdoc-to-markdown": "^7.1.1",
+    "lint-staged": "^12.5.0",
+    "prettier": "^2.6.2",
+    "react": "^18.1.0",
+    "react-test-renderer": "^18.1.0",
+    "typescript": "^4.7.2"
+  }
 }

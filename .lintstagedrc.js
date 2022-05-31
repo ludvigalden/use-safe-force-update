@@ -1,3 +1,4 @@
 module.exports = {
-	"*.{js,jsx,ts,tsx}": ["eslint --quiet --fix"],
+  '*.ts|tsx': ['eslint --cache --fix', () => 'yarn build'],
+  '*.js|jsx': 'eslint --cache --fix',
 };
